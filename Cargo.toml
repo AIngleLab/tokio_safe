@@ -1,5 +1,5 @@
 [package]
-name = "tokio_safe_block_on"
+name = "tokio_safe"
 version = "0.1.2"
 authors = ["neonphog <neonphog@gmail.com>"]
 edition = "2018"
@@ -8,8 +8,7 @@ keywords = ["tokio", "asynchronous"]
 categories = ["asynchronous"]
 license = "Apache-2.0"
 readme = "README.md"
-documentation = "https://docs.rs/tokio_safe_block_on"
-repository = "https://github.com/neonphog/tokio_safe_block_on"
+repository = "https://github.com/Daironode/tokio_safe"
 
 [dependencies]
 futures = "0.3"

@@ -14,7 +14,7 @@
 //!         // some library api may take a sync callback
 //!         // but we want to be able to execute async code
 //!         (|| {
-//!             let r = tokio_safe_block_on::tokio_safe_block_on(
+//!             let r = tokio_safe::tokio_safe(
 //!                 // async code to poll synchronously
 //!                 async move {
 //!                     // simulate some async work
@@ -77,7 +77,7 @@ pub fn tokio_safe_block_forever_on<F: std::future::Future>(f: F) -> F::Output {
 /// without blocking a tokio core thread or busy looping the cpu.
 /// You must ensure you are within the context of a tokio::task,
 /// This allows `tokio::task::block_in_place` to move to a blocking thread.
-pub fn tokio_safe_block_on<F: std::future::Future>(
+pub fn tokio_safe<F: std::future::Future>(
     f: F,
     timeout: std::time::Duration,
 ) -> Result<F::Output, BlockOnError> {
@@ -118,7 +118,7 @@ mod tests {
     async fn it_should_execute_async_from_sync_context() {
         tokio::task::spawn(async move {
             (|| {
-                let result = tokio_safe_block_on(
+                let result = tokio_safe(
                     async move { "test1" },
                     std::time::Duration::from_millis(10),
                 );
@@ -133,7 +133,7 @@ mod tests {
     async fn it_should_execute_timed_async_from_sync_context() {
         tokio::task::spawn(async move {
             (|| {
-                let result = tokio_safe_block_on(
+                let result = tokio_safe(
                     async move {
                         tokio::time::delay_for(std::time::Duration::from_millis(2)).await;
                         "test2"
@@ -151,7 +151,7 @@ mod tests {
     async fn it_should_timeout_timed_async_from_sync_context() {
         tokio::task::spawn(async move {
             (|| {
-                let result = tokio_safe_block_on(
+                let result = tokio_safe(
                     async move {
                         tokio::time::delay_for(std::time::Duration::from_millis(10)).await;
                         "test3"

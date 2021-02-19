@@ -15,7 +15,7 @@ async fn main() {
         // some library api may take a sync callback
         // but we want to be able to execute async code
         (|| {
-            let r = tokio_safe_block_on::tokio_safe_block_on(
+            let r = tokio_safe::tokio_safe(
                 // async code to poll synchronously
                 async move {
                     // simulate some async work
