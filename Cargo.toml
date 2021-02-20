@@ -1,10 +1,10 @@
 [package]
-name = "tokio_safe"
+name = "tokio_safe for AIngle"
 version = "0.1.2"
-authors = ["neonphog <neonphog@gmail.com>"]
+authors = ["AIngle Dev Team <developers@aingle.ai>"]
 edition = "2018"
-description = "Provides the ability to execute async code from a sync context, without blocking a tokio core thread or busy looping the cpu."
-keywords = ["tokio", "asynchronous"]
+description = "execute async code from a sync context, without blocking a tokio core thread or busy looping the cpu."
+keywords = ["tokio core", "asynchronous"]
 categories = ["asynchronous"]
 license = "Apache-2.0"
 readme = "README.md"
