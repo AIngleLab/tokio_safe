@@ -1,5 +1,5 @@
 [package]
-name = "tokio_safe for AIngle"
+name = "tokio_safe_for_AIngle"
 version = "0.1.2"
 authors = ["AIngle Dev Team <developers@aingle.ai>"]
 edition = "2018"
